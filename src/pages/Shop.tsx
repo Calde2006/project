@@ -99,11 +99,11 @@ export default function Shop() {
     filters.categories.length + filters.sizes.length + filters.colors.length;
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="min-h-screen bg-neutral-100 flex flex-col">
       <Header currentPage="shop" />
 
-      <main id="main-content" className="flex-1 bg-white">
-        <div className="bg-gray-50 border-b">
+      <main id="main-content" className="flex-1 bg-neutral-100">
+        <div>
           <div className="max-w-7xl mx-auto px-4 py-8">
             <h1 className="text-4xl font-bold text-gray-900 mb-2">Nuestra Tienda</h1>
             <p className="text-gray-600">
@@ -116,11 +116,11 @@ export default function Shop() {
           <div className="flex gap-8">
             <aside
               className={`${
-                mobileFiltersOpen ? 'fixed inset-0 z-50 bg-white overflow-y-auto' : 'hidden'
+                mobileFiltersOpen ? 'fixed inset-0 z-50 bg-white overflow-y-auto p-6' : 'hidden'
               } lg:block lg:w-64 flex-shrink-0`}
               aria-label="Filtros de productos"
             >
-              <div className="lg:sticky lg:top-24">
+              <div className="lg:sticky lg:top-24 bg-white rounded-lg p-6 shadow-sm">
                 <div className="flex justify-between items-center mb-6 lg:mb-4">
                   <h2 className="text-xl font-bold text-gray-900">Filtros</h2>
                   <button
