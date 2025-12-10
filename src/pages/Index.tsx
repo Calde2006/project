@@ -46,39 +46,41 @@ export default function Index() {
       <Header currentPage="home" />
 
       <main id="main-content">
-        <section
-          className="relative bg-gradient-to-r from-purple-600 to-purple-800 text-white py-20 md:py-32 overflow-hidden"
-          aria-labelledby="hero-heading"
-        >
-          <div className="absolute inset-0 opacity-20">
-            <img
-              src="https://images.pexels.com/photos/7679665/pexels-photo-7679665.jpeg?auto=compress&cs=tinysrgb&w=1200"
-              alt=""
-              className="w-full h-full object-cover"
-              aria-hidden="true"
-            />
-          </div>
-          <div className="relative max-w-7xl mx-auto px-4 flex items-center justify-center">
-            <div className="max-w-2xl">
-              <span className="inline-block bg-green-600 text-white text-sm font-semibold px-3 py-1 rounded-full mb-4">
-                Nueva Colección Primavera
-              </span>
-              <h1 id="hero-heading" className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                Moda Sostenible para un Futuro Mejor
-              </h1>
-              <p className="text-lg md:text-xl mb-8 text-purple-100">
-                Descubre nuestra colección de ropa ecológica y accesorios conscientes.
-              </p>
-              <a
-                href="/shop"
-                className="inline-flex items-center gap-2 bg-white text-purple-700 px-8 py-4 rounded-lg font-semibold hover:bg-purple-50 transition-colors"
-              >
-                Comprar Ahora
-                <ArrowRight className="w-5 h-5" aria-hidden="true" />
-              </a>
+        <div className="max-w-7xl mx-auto px-4 pt-8">
+          <section
+            className="relative bg-gradient-to-r from-purple-600 to-purple-800 text-white py-20 md:py-32 overflow-hidden rounded-2xl"
+            aria-labelledby="hero-heading"
+          >
+            <div className="absolute inset-0 opacity-20 rounded-2xl">
+              <img
+                src="https://images.pexels.com/photos/7679665/pexels-photo-7679665.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt=""
+                className="w-full h-full object-cover"
+                aria-hidden="true"
+              />
             </div>
-          </div>
-        </section>
+            <div className="relative px-4 flex items-center justify-center">
+              <div className="max-w-2xl">
+                <span className="inline-block bg-green-600 text-white text-sm font-semibold px-3 py-1 rounded-full mb-4">
+                  Nueva Colección Primavera
+                </span>
+                <h1 id="hero-heading" className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                  Moda Sostenible para un Futuro Mejor
+                </h1>
+                <p className="text-lg md:text-xl mb-8 text-purple-100">
+                  Descubre nuestra colección de ropa ecológica y accesorios conscientes.
+                </p>
+                <a
+                  href="/shop"
+                  className="inline-flex items-center gap-2 bg-white text-purple-700 px-8 py-4 rounded-lg font-semibold hover:bg-purple-50 transition-colors"
+                >
+                  Comprar Ahora
+                  <ArrowRight className="w-5 h-5" aria-hidden="true" />
+                </a>
+              </div>
+            </div>
+          </section>
+        </div>
 
         <section className="py-16 bg-gray-50" aria-labelledby="categories-heading">
           <div className="max-w-7xl mx-auto px-4">
