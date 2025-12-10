@@ -1,122 +1,67 @@
-import { useEffect, useState } from 'react';
-import { supabase } from '../lib/supabase';
-import { Product as ProductType, ProductVariant, ProductFeature } from '../types';
+import { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import ProductCard from '../components/ProductCard';
 import Newsletter from '../components/Newsletter';
 import { ShoppingCart, Heart, Share2, Truck, RefreshCw, Shield, Check } from 'lucide-react';
 
 export default function Product() {
-  const [product, setProduct] = useState<ProductType | null>(null);
-  const [variants, setVariants] = useState<ProductVariant[]>([]);
-  const [features, setFeatures] = useState<ProductFeature[]>([]);
-  const [relatedProducts, setRelatedProducts] = useState<ProductType[]>([]);
-  const [loading, setLoading] = useState(true);
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedSize, setSelectedSize] = useState('M');
   const [selectedColor, setSelectedColor] = useState('Oliva');
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState<'description' | 'details' | 'reviews'>('description');
 
-  useEffect(() => {
-    async function fetchProduct() {
-      try {
-        const productSlug = 'camiseta-organica-esencial';
+  // Datos estáticos de ejemplo para mostrar la estructura
+  const product = {
+    name: 'Camiseta Orgánica Esencial',
+    description: 'Nuestra camiseta esencial está confeccionada con 100% algodón orgánico certificado. Diseñada para la comodidad diaria, esta pieza versátil combina estilo minimalista con responsabilidad ambiental. Perfecta para cualquier ocasión.',
+    price: 49.99,
+    original_price: 69.99,
+    discount_percentage: 29,
+    category: { name: 'Ropa', slug: 'ropa' },
+    stock: 25,
+    rating: 4.5,
+    review_count: 127,
+    sku: 'ORG-SHIRT-001',
+    material: '100% Algodón Orgánico Certificado GOTS',
+  };
 
-        const { data: productData } = await supabase
-          .from('products')
-          .select(`
-            *,
-            category:categories(*),
-            images:product_images(*)
-          `)
-          .eq('slug', productSlug)
-          .single();
+  const images = [
+    {
+      url: 'https://images.pexels.com/photos/8532616/pexels-photo-8532616.jpeg?auto=compress&cs=tinysrgb&w=800',
+      alt_text: 'Camiseta orgánica verde vista frontal',
+    },
+    {
+      url: 'https://images.pexels.com/photos/5698852/pexels-photo-5698852.jpeg?auto=compress&cs=tinysrgb&w=800',
+      alt_text: 'Camiseta orgánica verde vista lateral',
+    },
+    {
+      url: 'https://images.pexels.com/photos/8532635/pexels-photo-8532635.jpeg?auto=compress&cs=tinysrgb&w=800',
+      alt_text: 'Camiseta orgánica verde detalle',
+    },
+    {
+      url: 'https://images.pexels.com/photos/7679665/pexels-photo-7679665.jpeg?auto=compress&cs=tinysrgb&w=800',
+      alt_text: 'Camiseta orgánica verde ambiente',
+    },
+  ];
 
-        if (productData) {
-          setProduct(productData as ProductType);
+  const uniqueSizes = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
 
-          const [variantsRes, featuresRes, relatedRes] = await Promise.all([
-            supabase
-              .from('product_variants')
-              .select('*')
-              .eq('product_id', productData.id)
-              .order('size'),
-            supabase
-              .from('product_features')
-              .select('*')
-              .eq('product_id', productData.id)
-              .order('order'),
-            supabase
-              .from('products')
-              .select(`
-                *,
-                category:categories(*),
-                images:product_images(*)
-              `)
-              .eq('category_id', productData.category_id)
-              .neq('id', productData.id)
-              .limit(3),
-          ]);
+  const uniqueColors = [
+    { color: 'Oliva', color_hex: '#7a7d45' },
+    { color: 'Negro', color_hex: '#000000' },
+    { color: 'Blanco', color_hex: '#ffffff' },
+    { color: 'Beige', color_hex: '#d4c5b0' },
+  ];
 
-          if (variantsRes.data) setVariants(variantsRes.data);
-          if (featuresRes.data) setFeatures(featuresRes.data);
-          if (relatedRes.data) setRelatedProducts(relatedRes.data as ProductType[]);
-        }
-      } catch (error) {
-        console.error('Error fetching product:', error);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchProduct();
-  }, []);
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-white flex flex-col">
-        <Header currentPage="product" />
-        <main className="flex-1 max-w-7xl mx-auto px-4 py-8">
-          <div className="animate-pulse">
-            <div className="h-8 bg-gray-200 rounded w-3/4 mb-8" />
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="aspect-square bg-gray-200 rounded-lg" />
-              <div className="space-y-4">
-                <div className="h-10 bg-gray-200 rounded" />
-                <div className="h-6 bg-gray-200 rounded w-1/2" />
-                <div className="h-24 bg-gray-200 rounded" />
-              </div>
-            </div>
-          </div>
-        </main>
-        <Footer />
-      </div>
-    );
-  }
-
-  if (!product) {
-    return (
-      <div className="min-h-screen bg-white flex flex-col">
-        <Header currentPage="product" />
-        <main className="flex-1 max-w-7xl mx-auto px-4 py-8 text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">Producto no encontrado</h1>
-          <a href="/shop" className="text-olive-700 hover:text-olive-800 font-semibold">
-            Volver a la tienda
-          </a>
-        </main>
-        <Footer />
-      </div>
-    );
-  }
-
-  const images = product.images || [];
-  const uniqueSizes = Array.from(new Set(variants.map((v) => v.size).filter(Boolean)));
-  const colorVariants = variants.filter((v) => v.color && v.color_hex);
-  const uniqueColors = Array.from(
-    new Map(colorVariants.map((v) => [v.color, v])).values()
-  );
+  const features = [
+    'Certificación GOTS (Global Organic Textile Standard)',
+    'Producción ética y comercio justo',
+    'Tintes naturales y biodegradables',
+    'Libre de químicos nocivos',
+    'Proceso de fabricación con bajo consumo de agua',
+    'Empaque 100% reciclable',
+  ];
 
   const hasDiscount = product.discount_percentage > 0;
 
@@ -498,19 +443,6 @@ export default function Product() {
               )}
             </div>
           </div>
-
-          {relatedProducts.length > 0 && (
-            <section aria-labelledby="related-heading">
-              <h2 id="related-heading" className="text-3xl font-bold text-gray-900 mb-8">
-                También te puede interesar
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {relatedProducts.map((relatedProduct) => (
-                  <ProductCard key={relatedProduct.id} product={relatedProduct} />
-                ))}
-              </div>
-            </section>
-          )}
         </div>
 
         <Newsletter />

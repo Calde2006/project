@@ -10,7 +10,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   return (
     <article className="group relative bg-white rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-      <a href={`/product/${product.slug}`} className="block">
+      <a href="/product" className="block">
         <div className="relative aspect-square overflow-hidden bg-gray-100">
           <img
             src={mainImage}
