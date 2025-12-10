@@ -42,7 +42,7 @@ export default function Index() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="min-h-screen bg-neutral-100 flex flex-col">
       <Header currentPage="home" />
 
       <main id="main-content">
@@ -82,7 +82,7 @@ export default function Index() {
           </section>
         </div>
 
-        <section className="py-16 bg-gray-50" aria-labelledby="categories-heading">
+        <section className="py-16" aria-labelledby="categories-heading">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
               <h2 id="categories-heading" className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -127,7 +127,7 @@ export default function Index() {
           </div>
         </section>
 
-        <section className="py-16 bg-gray-50" aria-labelledby="featured-heading">
+        <section className="py-16" aria-labelledby="featured-heading">
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex justify-between items-center mb-12">
               <div>

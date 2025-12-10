@@ -17,7 +17,7 @@ export default function Newsletter() {
   };
 
   return (
-    <section className="bg-gray-100 py-16" aria-labelledby="newsletter-heading">
+    <section className="bg-neutral-200 py-16" aria-labelledby="newsletter-heading">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-8">
           <h2 id="newsletter-heading" className="text-3xl font-bold text-gray-900 mb-2">
