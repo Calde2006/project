@@ -70,8 +70,8 @@ export default function Product() {
       <Header currentPage="product" />
 
       <main id="main-content" className="flex-1 bg-white">
-        <nav className="border-b bg-white" aria-label="Breadcrumb">
-          <div className="max-w-7xl mx-auto px-4 py-3">
+        <nav aria-label="Breadcrumb">
+          <div className="max-w-7xl mx-auto px-4 pt-8 pb-4">
             <ol className="flex items-center gap-2 text-sm flex-wrap">
               <li>
                 <a href="/" className="text-gray-600 hover:text-gray-900">
