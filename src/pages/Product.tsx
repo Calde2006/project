@@ -122,11 +122,10 @@ export default function Product() {
                       <button
                         key={image.id}
                         onClick={() => setSelectedImage(index)}
-                        className={`aspect-square bg-gray-100 rounded-lg overflow-hidden border-2 transition-colors ${
-                          selectedImage === index
-                            ? 'border-olive-700'
-                            : 'border-transparent hover:border-gray-300'
-                        }`}
+                        className={`aspect-square bg-gray-100 rounded-lg overflow-hidden border-2 transition-colors ${selectedImage === index
+                          ? 'border-olive-700'
+                          : 'border-transparent hover:border-gray-300'
+                          }`}
                         aria-label={`Ver imagen ${index + 1} de ${images.length}`}
                       >
                         <img
@@ -215,11 +214,10 @@ export default function Product() {
                       <button
                         key={size}
                         onClick={() => setSelectedSize(size!)}
-                        className={`py-3 border-2 rounded-lg font-semibold transition-colors ${
-                          selectedSize === size
-                            ? 'bg-olive-700 text-white border-olive-700'
-                            : 'bg-white text-gray-700 border-gray-300 hover:border-olive-500'
-                        }`}
+                        className={`py-3 border-2 rounded-lg font-semibold transition-colors ${selectedSize === size
+                          ? 'bg-olive-700 text-white border-olive-700'
+                          : 'bg-white text-gray-700 border-gray-300 hover:border-olive-500'
+                          }`}
                         aria-pressed={selectedSize === size}
                       >
                         {size}
@@ -239,11 +237,10 @@ export default function Product() {
                       <button
                         key={variant.id}
                         onClick={() => setSelectedColor(variant.color!)}
-                        className={`w-10 h-10 rounded-full border-2 transition-all ${
-                          selectedColor === variant.color
-                            ? 'border-olive-700 ring-2 ring-olive-300'
-                            : 'border-gray-300 hover:border-gray-400'
-                        }`}
+                        className={`w-10 h-10 rounded-full border-2 transition-all ${selectedColor === variant.color
+                          ? 'border-olive-700 ring-2 ring-olive-500'
+                          : 'border-gray-300 hover:border-gray-400'
+                          }`}
                         style={{ backgroundColor: variant.color_hex }}
                         aria-label={`Color ${variant.color}`}
                         aria-pressed={selectedColor === variant.color}
@@ -347,11 +344,10 @@ export default function Product() {
             <div className="flex border-b mb-8" role="tablist" aria-label="Información del producto">
               <button
                 onClick={() => setActiveTab('description')}
-                className={`px-6 py-4 font-semibold border-b-2 transition-colors ${
-                  activeTab === 'description'
-                    ? 'border-olive-700 text-olive-700'
-                    : 'border-transparent text-gray-600 hover:text-gray-900'
-                }`}
+                className={`px-6 py-4 font-semibold border-b-2 transition-colors ${activeTab === 'description'
+                  ? 'border-olive-700 text-olive-700'
+                  : 'border-transparent text-gray-600 hover:text-gray-900'
+                  }`}
                 role="tab"
                 aria-selected={activeTab === 'description'}
                 aria-controls="description-panel"
@@ -360,11 +356,10 @@ export default function Product() {
               </button>
               <button
                 onClick={() => setActiveTab('details')}
-                className={`px-6 py-4 font-semibold border-b-2 transition-colors ${
-                  activeTab === 'details'
-                    ? 'border-olive-700 text-olive-700'
-                    : 'border-transparent text-gray-600 hover:text-gray-900'
-                }`}
+                className={`px-6 py-4 font-semibold border-b-2 transition-colors ${activeTab === 'details'
+                  ? 'border-olive-700 text-olive-700'
+                  : 'border-transparent text-gray-600 hover:text-gray-900'
+                  }`}
                 role="tab"
                 aria-selected={activeTab === 'details'}
                 aria-controls="details-panel"
@@ -373,11 +368,10 @@ export default function Product() {
               </button>
               <button
                 onClick={() => setActiveTab('reviews')}
-                className={`px-6 py-4 font-semibold border-b-2 transition-colors ${
-                  activeTab === 'reviews'
-                    ? 'border-olive-700 text-olive-700'
-                    : 'border-transparent text-gray-600 hover:text-gray-900'
-                }`}
+                className={`px-6 py-4 font-semibold border-b-2 transition-colors ${activeTab === 'reviews'
+                  ? 'border-olive-700 text-olive-700'
+                  : 'border-transparent text-gray-600 hover:text-gray-900'
+                  }`}
                 role="tab"
                 aria-selected={activeTab === 'reviews'}
                 aria-controls="reviews-panel"

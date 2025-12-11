@@ -48,7 +48,7 @@ export default function Index() {
       <main id="main-content">
         <div className="max-w-7xl mx-auto px-4 pt-8">
           <section
-            className="relative bg-gradient-to-r from-purple-600 to-purple-800 text-white py-20 md:py-32 overflow-hidden rounded-2xl"
+            className="relative bg-gradient-to-r from-olive-500 to-olive-700 text-white py-20 md:py-32 overflow-hidden rounded-2xl"
             aria-labelledby="hero-heading"
           >
             <div className="absolute inset-0 opacity-20 rounded-2xl">
@@ -67,12 +67,12 @@ export default function Index() {
                 <h1 id="hero-heading" className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                   Moda Sostenible para un Futuro Mejor
                 </h1>
-                <p className="text-lg md:text-xl mb-8 text-purple-100">
+                <p className="text-lg md:text-xl mb-8 text-white">
                   Descubre nuestra colección de ropa ecológica y accesorios conscientes.
                 </p>
                 <a
                   href="/shop"
-                  className="inline-flex items-center gap-2 bg-white text-purple-700 px-8 py-4 rounded-lg font-semibold hover:bg-purple-50 transition-colors"
+                  className="inline-flex items-center gap-2 bg-white text-olive-700 px-8 py-4 rounded-lg font-semibold"
                 >
                   Comprar Ahora
                   <ArrowRight className="w-5 h-5" aria-hidden="true" />
@@ -179,12 +179,12 @@ export default function Index() {
             <h2 id="sustainable-movement-heading" className="text-3xl md:text-4xl font-bold mb-6">
               Únete al Movimiento Sostenible
             </h2>
-            <p className="text-lg text-olive-100 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-white mb-8 max-w-2xl mx-auto">
               Suscríbete para recibir ofertas exclusivas, consejos de moda sostenible y ser parte de nuestra comunidad consciente
             </p>
             <a
               href="/shop"
-              className="inline-flex items-center gap-2 bg-white text-olive-700 px-8 py-4 rounded-lg font-semibold hover:bg-olive-50 transition-colors"
+              className="inline-flex items-center gap-2 bg-white text-olive-700 px-8 py-4 rounded-lg font-semibold hover:bg-olive-500 transition-colors"
             >
               Comprar Ahora
             </a>

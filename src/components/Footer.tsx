@@ -2,8 +2,8 @@ import { Facebook, Instagram, Twitter } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-neutral-200 border-t border-gray-200" role="contentinfo">
-      <div className="max-w-7xl mx-auto px-4 py-12">
+    <footer className="bg-neutral-200" role="contentinfo">
+      <div className="max-w-7xl mx-auto px-4 py-12 border-t border-neutral-300">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           <div>
             <h3 className="font-bold text-gray-800 mb-4">TerraShop</h3>

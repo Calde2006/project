@@ -104,7 +104,7 @@ export default function Shop() {
 
       <main id="main-content" className="flex-1 bg-neutral-100">
         <div>
-          <div className="max-w-7xl mx-auto px-4 py-8">
+          <div className="max-w-7xl mx-auto px-4 py-8 border-b">
             <h1 className="text-4xl font-bold text-gray-900 mb-2">Nuestra Tienda</h1>
             <p className="text-gray-600">
               Explora nuestra colección completa de moda sostenible y productos eco-friendly
@@ -115,9 +115,8 @@ export default function Shop() {
         <div className="max-w-7xl mx-auto px-4 py-8">
           <div className="flex gap-8">
             <aside
-              className={`${
-                mobileFiltersOpen ? 'fixed inset-0 z-50 bg-white overflow-y-auto p-6' : 'hidden'
-              } lg:block lg:w-64 flex-shrink-0`}
+              className={`${mobileFiltersOpen ? 'fixed inset-0 z-50 bg-white overflow-y-auto p-6' : 'hidden'
+                } lg:block lg:w-64 flex-shrink-0`}
               aria-label="Filtros de productos"
             >
               <div className="lg:sticky lg:top-24 bg-white rounded-lg p-6 shadow-sm">
@@ -142,7 +141,7 @@ export default function Shop() {
                             type="checkbox"
                             checked={filters.categories.includes(category.slug)}
                             onChange={() => toggleCategory(category.slug)}
-                            className="w-4 h-4 text-olive-600 border-gray-300 rounded focus:ring-olive-500"
+                            className="w-4 h-4 rounded accent-olive-700"
                           />
                           <span className="text-gray-700">
                             {category.name}{' '}
@@ -202,11 +201,10 @@ export default function Shop() {
                                 : [...prev.sizes, size],
                             }))
                           }
-                          className={`px-3 py-2 border rounded-lg text-sm font-medium transition-colors ${
-                            filters.sizes.includes(size)
-                              ? 'bg-olive-700 text-white border-olive-700'
-                              : 'bg-white text-gray-700 border-gray-300 hover:border-olive-500'
-                          }`}
+                          className={`px-3 py-2 border rounded-lg text-sm font-medium transition-colors ${filters.sizes.includes(size)
+                            ? 'bg-olive-700 text-white border-olive-700'
+                            : 'bg-white text-gray-700 border-gray-300 hover:border-olive-500'
+                            }`}
                           aria-pressed={filters.sizes.includes(size)}
                         >
                           {size}
@@ -238,7 +236,7 @@ export default function Shop() {
                                   : [...prev.colors, color.value],
                               }))
                             }
-                            className="w-4 h-4 text-olive-600 border-gray-300 rounded focus:ring-olive-500"
+                            className="w-4 h-4 rounded accent-olive-700"
                           />
                           <span className="text-gray-700">{color.name}</span>
                         </label>
@@ -249,7 +247,7 @@ export default function Shop() {
                   {activeFiltersCount > 0 && (
                     <button
                       onClick={clearFilters}
-                      className="w-full px-4 py-2 text-sm font-medium text-olive-700 border border-olive-700 rounded-lg hover:bg-olive-50 transition-colors flex items-center justify-center gap-2"
+                      className="w-full px-4 py-2 text-sm font-medium text-olive-700 border border-olive-700 rounded-lg hover:bg-olive-500 transition-colors flex items-center justify-center gap-2"
                     >
                       <X className="w-4 h-4" aria-hidden="true" />
                       Limpiar filtros
@@ -292,11 +290,10 @@ export default function Shop() {
                   <div className="hidden sm:flex gap-2" role="group" aria-label="Vista de productos">
                     <button
                       onClick={() => setViewMode('grid')}
-                      className={`p-2 border rounded-lg ${
-                        viewMode === 'grid'
-                          ? 'bg-olive-700 text-white border-olive-700'
-                          : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
-                      }`}
+                      className={`p-2 border rounded-lg ${viewMode === 'grid'
+                        ? 'bg-olive-700 text-white border-olive-700'
+                        : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
+                        }`}
                       aria-label="Vista en cuadrícula"
                       aria-pressed={viewMode === 'grid'}
                     >
@@ -304,11 +301,10 @@ export default function Shop() {
                     </button>
                     <button
                       onClick={() => setViewMode('list')}
-                      className={`p-2 border rounded-lg ${
-                        viewMode === 'list'
-                          ? 'bg-olive-700 text-white border-olive-700'
-                          : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
-                      }`}
+                      className={`p-2 border rounded-lg ${viewMode === 'list'
+                        ? 'bg-olive-700 text-white border-olive-700'
+                        : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
+                        }`}
                       aria-label="Vista en lista"
                       aria-pressed={viewMode === 'list'}
                     >
